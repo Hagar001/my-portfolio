@@ -38,53 +38,65 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Hero Section */
+/* ---------------- HERO (updated so photo fills left area exactly) ---------------- */
+
+/* Make the hero container itself have no outer padding,
+   and move the spacing into the text section so the image
+   can reach the hero edges with no visible #968880 around it. */
 #hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1rem;
+  display: block;                /* keep structure simple */
   background: #968880;
   color: white;
+  padding: 0;                    /* removed outer padding so image can touch top/left */
 }
 
+/* inner container keeps the max width and centers content */
 .hero-container {
   display: flex;
-  align-items: stretch;
   max-width: 1100px;
   width: 100%;
+  margin: 0 auto;                /* center container inside hero */
+  align-items: stretch;          /* make photo and text match height */
 }
 
-.hero-image {
+/* Photo section: fills the full left area (no border or background showing) */
+.hero-photo-section {
   flex: 1;
-  max-width: 40%;
-  height: auto; /* let it stretch with container */
+  max-width: 40%;                
+  height: 420px;                 /* 🔹 slightly taller for 900×1073 */
   overflow: hidden;
 }
 
-.hero-image img {
+/* Image fills entire photo section (no gaps, crops neatly) */
+.hero-photo-section img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Crop neatly */
+  object-fit: cover;             /* crop to fill without distortion */
   display: block;
+  border: none;                  /* ensure no border */
+  background: none;
 }
 
-.hero-text {
+/* Text section keeps the spacing you had before by giving it padding */
+.hero-text-section {
   flex: 1;
-  padding-left: 2rem;
+  padding: 3rem 1rem;            
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.hero-text h1 {
+.hero-text-section h1 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.hero-text p {
+.hero-text-section p {
   font-size: 1.2rem;
 }
+
+/* ------------------------------------------------------------------------------- */
 
 /* About Section */
 #about {
@@ -199,25 +211,18 @@ footer {
   color: white;
 }
 
-/* ---------------- Responsive Fix ---------------- */
+/* Responsive: stack photo above text on small screens (keeps desktop unchanged) */
 @media (max-width: 768px) {
   .hero-container {
     flex-direction: column;
-    text-align: center;
   }
 
-  .hero-image {
+  .hero-photo-section {
     max-width: 100%;
-    height: auto; /* let image size adapt */
+    height: 280px;    /* 🔹 slightly taller for phones */
   }
 
-  .hero-image img {
-    width: 100%;
-    height: auto;
-  }
-
-  .hero-text {
-    padding-left: 0;
-    margin-top: 1rem;
+  .hero-text-section {
+    padding: 1.5rem;  
   }
 }
