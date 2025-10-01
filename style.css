@@ -38,11 +38,8 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* ---------------- HERO (updated so photo fills left area exactly) ---------------- */
+/* --------------------------------------- HERO -------------------------------------- */
 
-/* Make the hero container itself have no outer padding,
-   and move the spacing into the text section so the image
-   can reach the hero edges with no visible #968880 around it. */
 #hero {
   display: block;                /* keep structure simple */
   background: #968880;
@@ -114,10 +111,12 @@ nav ul li a:hover {
   margin-top: 1.5rem;
 }
 
-.about-video video {
+.about-video iframe {
   width: 80%;
   max-width: 600px;
+  aspect-ratio: 16 / 9;
   border-radius: 10px;
+  border: none;
 }
 
 /* Skills Section */
