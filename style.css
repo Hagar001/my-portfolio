@@ -108,13 +108,19 @@ nav ul li a:hover {
 }
 
 .about-video {
-  margin-top: 1.5rem;
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  padding-top: 56.25%;
+  margin: 0 auto;
 }
 
 .about-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 560px;
-  height: auto;
+  height: 100%;
 }
 
 /* Skills Section */
@@ -223,4 +229,5 @@ footer {
     padding: 1.5rem;  
   }
 }
+
 
